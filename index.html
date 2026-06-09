@@ -53,7 +53,7 @@
 
   /* ============ TYPE ============ */
   h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.08;color:var(--ink);letter-spacing:-.01em}
-  h1{font-size:clamp(2.4rem,5.4vw,4rem);font-weight:500}
+  h1{font-size:clamp(1.85rem,5.4vw,4rem);font-weight:500;overflow-wrap:break-word}
   h2{font-size:clamp(1.95rem,3.8vw,2.9rem)}
   .eyebrow{
     font-family:var(--font-body);font-weight:700;font-size:.78rem;
@@ -70,7 +70,7 @@
   .section--sand{background:var(--sand)}
   .section--plum{background:var(--plum-deep);color:var(--paper)}
   .section--plum h2,.section--plum h3{color:#fff}
-  [id]{scroll-margin-top:88px}
+  [id]{scroll-margin-top:24px}
 
   /* ============ BUTTONS ============ */
   .btn{
@@ -120,8 +120,7 @@
   .hero__grid{display:block}
   .hero__content{max-width:46rem;margin-inline:auto;text-align:center}
   .hero h1{margin-bottom:1.35rem}
-  .hero h1 .hl{color:var(--plum);position:relative;white-space:nowrap}
-  .hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.08em;height:.34em;background:var(--rose-soft);z-index:-1;border-radius:3px}
+  .hero h1 .hl{color:var(--plum);background-image:linear-gradient(transparent 66%, var(--rose-soft) 66%, var(--rose-soft) 94%, transparent 94%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .03em}
   .hero__lead{font-size:clamp(1.05rem,1.7vw,1.2rem);color:var(--ink-soft);margin-bottom:1.6rem}
   .value-chip{
     display:inline-flex;align-items:center;gap:.7rem;background:#fff;border:1px solid var(--line);
@@ -357,7 +356,7 @@
     <div class="wrap hero__grid">
       <div class="hero__content">
         <span class="eyebrow reveal">Salário-Maternidade · Direito Previdenciário</span>
-        <h1 class="reveal d1">Você pode ter direito a <span class="hl">dois salários-maternidade</span>.</h1>
+        <h1 class="reveal d1">Você pode ter direito&nbsp;a <span class="hl">dois salários-maternidade</span>.</h1>
         <p class="hero__lead reveal d2">Gestantes de carteira assinada recebem o salário-maternidade pela empresa. Em alguns casos, é possível receber também um segundo benefício pelo INSS. Eu avalio o seu caso e te digo, com clareza, se você se enquadra.</p>
         <div class="value-chip reveal d2">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
@@ -602,12 +601,6 @@
 </a>
 
 <script>
-  // Header shadow on scroll
-  const header = document.querySelector('.site-header');
-  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 10);
-  onScroll();
-  window.addEventListener('scroll', onScroll, {passive:true});
-
   // Scroll reveal
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const items = document.querySelectorAll('.reveal');
